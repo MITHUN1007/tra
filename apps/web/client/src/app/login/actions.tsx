@@ -1,34 +1,14 @@
+
 'use server';
 
-import { createClient } from '@/utils/supabase/server';
-import { SignInMethod } from '@onlook/models';
-import { headers } from 'next/headers';
-import { redirect } from 'next/navigation';
+import { SignInMethod } from '../../lib/models';
 
 export async function login(provider: SignInMethod) {
-    const supabase = await createClient();
-    const origin = (await headers()).get('origin');
-
-    // If already session, redirect
-    const {
-        data: { session },
-    } = await supabase.auth.getSession();
-    if (session) {
-        redirect('/');
+    // Simplified login action - in a real app this would handle OAuth
+    console.log(`Login with ${provider}`);
+    
+    // For now, just redirect to home
+    if (typeof window !== 'undefined') {
+        window.location.href = '/';
     }
-
-    // Start OAuth flow
-    // Note: User object will be created in the auth callback route if it doesn't exist
-    const { data, error } = await supabase.auth.signInWithOAuth({
-        provider,
-        options: {
-            redirectTo: `${origin}/auth/callback`,
-        },
-    });
-
-    if (error) {
-        redirect('/error');
-    }
-
-    redirect(data.url);
 }
