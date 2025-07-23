@@ -33,20 +33,20 @@ export default function LoginPage() {
     };
 
     return (
-        <div className="flex h-screen w-screen">
+        <div className="flex h-screen w-screen bg-background">
             <div className="flex flex-col justify-between w-full h-full max-w-xl p-16 space-y-8 overflow-auto">
                 <div className="flex items-center space-x-2">
-                    <Icons.OnlookTextLogo viewBox="0 0 139 17" />
+                    <Icons.OnlookTextLogo viewBox="0 0 139 17" className="h-4" />
                 </div>
                 <div className="space-y-8">
                     <div className="space-y-2 uppercase rounded-full p-1 px-2 w-auto inline-block text-micro border-[0.5px] text-blue-400 border-blue-400">
                         <p>{t('welcome.alpha')}</p>
                     </div>
                     <div className="space-y-4">
-                        <h1 className="text-title1 leading-tight">
+                        <h1 className="text-title1 leading-tight text-foreground font-normal">
                             {lastSignInMethod ? t('welcome.titleReturn') : t('welcome.title')}
                         </h1>
-                        <p className="text-foreground-onlook text-regular">
+                        <p className="text-foreground-onlook text-regular leading-relaxed">
                             {t('welcome.description')}
                         </p>
                     </div>

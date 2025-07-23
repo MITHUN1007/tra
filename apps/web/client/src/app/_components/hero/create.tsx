@@ -190,22 +190,26 @@ export function Create() {
     };
 
     return (
-        <div className="w-full h-full flex flex-col items-center justify-center gap-12 p-8 text-lg text-center">
-            <div className="flex flex-col gap-4">
-                <h1 className="text-4xl">Code makes your designs real</h1>
-                <p className="text-lg text-foreground-secondary">
+        <div className="w-full flex flex-col gap-8 max-w-2xl mx-auto">
+            <div className="flex flex-col gap-4 text-center lg:text-left">
+                <h1 className="text-4xl lg:text-5xl font-normal text-foreground leading-tight">
+                    Code makes your designs real
+                </h1>
+                <p className="text-lg text-foreground-secondary max-w-xl">
                     Onlook is an AI-powered visual editor for code that helps you prototype, design,
-                    and ideate
+                    and ideate directly in your live application.
                 </p>
             </div>
             <div className="flex flex-col gap-4">
                 <Card
                     className={cn(
-                        'w-[600px] backdrop-blur-md bg-background/30 overflow-hidden gap-4',
+                        'w-full backdrop-blur-md bg-background/30 overflow-hidden gap-4 border-border/50',
                         isDragging && 'bg-background',
                     )}
                 >
-                    <CardHeader className="text-start">{`Let's design a...`}</CardHeader>
+                    <CardHeader className="text-start pb-2">
+                        <h3 className="text-lg font-medium">{`Let's design a...`}</h3>
+                    </CardHeader>
                     <CardContent>
                         <div
                             className={cn(

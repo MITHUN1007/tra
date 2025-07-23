@@ -13,7 +13,7 @@ export const TopBar = observer(() => {
     const user = userManager.user;
 
     return (
-        <div className="w-full flex items-center justify-between p-4">
+        <div className="w-full h-16 flex items-center justify-between px-6">
             <div className="flex items-center gap-4">
                 <Link href={Routes.HOME}>
                     <Icons.OnlookTextLogo className="h-3" />
