@@ -1,13 +1,9 @@
-'use server';
 
 import { SignInMethod } from '../../../../../../src/lib/models';
 
 export async function login(provider: SignInMethod) {
     // Simplified login action - in a real app this would handle OAuth
-    console.log(`Login with ${provider}`);
-    
-    // For now, just redirect to home
-    if (typeof window !== 'undefined') {
-        window.location.href = '/';
-    }
+    console.log(`Attempting to login with ${provider}`);
+    // Simulate successful login
+    return { success: true };
 }
