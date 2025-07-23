@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -6,6 +5,7 @@ import './index.css';
 import { TooltipProvider } from './components/ui/tooltip';
 import { TopBar } from './components/simplified-top-bar';
 import { Create } from './components/simplified-create';
+import { Icons } from './components/icons';
 
 // Simple pages for the application
 const HomePage = () => (
