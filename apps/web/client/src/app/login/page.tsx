@@ -1,9 +1,9 @@
 
 import React from 'react';
 import { login } from './actions';
-import { SignInMethod } from '../../../lib/models';
-import { Button } from '../../../components/ui/button';
-import { Icons } from '../../../components/icons';
+import { SignInMethod } from '../../../../../src/lib/models';
+import { Button } from '../../../../../src/components/ui/button';
+import { Icons } from '../../../../../src/components/icons';
 
 export default function LoginPage() {
   const handleGitHubLogin = async () => {
