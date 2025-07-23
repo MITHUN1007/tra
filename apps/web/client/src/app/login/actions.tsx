@@ -1,7 +1,6 @@
-
 'use server';
 
-import { SignInMethod } from '../../../../../src/lib/models';
+import { SignInMethod } from '../../../../../../src/lib/models';
 
 export async function login(provider: SignInMethod) {
     // Simplified login action - in a real app this would handle OAuth
