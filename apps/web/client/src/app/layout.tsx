@@ -1,41 +1,41 @@
-import '@/styles/globals.css';
-import '@onlook/ui/globals.css';
 
-import { TRPCReactProvider } from '@/trpc/react';
-import { type Metadata } from 'next';
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 import { NextIntlClientProvider } from 'next-intl';
-import { getLocale } from 'next-intl/server';
-import { Inter } from 'next/font/google';
-import { ThemeProvider } from './_components/theme';
+import { TRPCReactProvider } from '@/trpc/react';
+import { AppRouter } from './router';
+import '../styles/globals.css';
 
-export const metadata: Metadata = {
-    title: 'Onlook',
-    description: 'Onlook – Cursor for Designers',
-    icons: [{ rel: 'icon', url: '/favicon.ico' }],
+// Mock messages for next-intl
+const messages = {
+  editor: {
+    panels: {
+      edit: {
+        tabs: {
+          chat: {
+            name: 'Chat'
+          }
+        }
+      }
+    }
+  }
 };
 
-const inter = Inter({
-    subsets: ['latin'],
-    variable: '--font-inter',
-});
+function App() {
+  return (
+    <NextIntlClientProvider locale="en" messages={messages}>
+      <TRPCReactProvider>
+        <BrowserRouter>
+          <AppRouter />
+        </BrowserRouter>
+      </TRPCReactProvider>
+    </NextIntlClientProvider>
+  );
+}
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
-    const locale = await getLocale();
-
-    return (
-        <html lang={locale} className={inter.variable} suppressHydrationWarning>
-            <body>
-                <ThemeProvider
-                    attribute="class"
-                    defaultTheme="dark"
-                    enableSystem
-                    disableTransitionOnChange
-                >
-                    <TRPCReactProvider>
-                        <NextIntlClientProvider>{children}</NextIntlClientProvider>
-                    </TRPCReactProvider>
-                </ThemeProvider>
-            </body>
-        </html>
-    );
+const container = document.getElementById('root');
+if (container) {
+  const root = createRoot(container);
+  root.render(<App />);
 }
